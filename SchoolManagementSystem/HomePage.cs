@@ -15,23 +15,20 @@ namespace SchoolManagementSystem
         public HomePage()
         {
             InitializeComponent();
-        }
 
-        private void HomePage_Load(object sender, EventArgs e)
-        {
 
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            //Dashboard dForm = new Dashboard();
-            //dForm.displayEnrolledStudentToday();
-            //dForm.displayTotalGS();
-            //dForm.displayTotalTT();
-            //dForm.displayTotalES();
+            dashboard dForm = new dashboard();
+            dForm.displayEnrolledToday();
+            dForm.displayTotalGS();
+            dForm.displayTotalTP();
+            dForm.displayTotalES();
 
             dashboard2.Visible = true;
-            dashboard1.Update();
+            dashboard2.Update();
             addStudent1.Visible = false;
             addProfessor1.Visible = false;
         }

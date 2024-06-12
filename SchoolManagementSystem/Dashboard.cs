@@ -18,15 +18,12 @@ namespace SchoolManagementSystem
         public dashboard()
         {
             InitializeComponent();
-            displayEnrolledToday();
+
             displayTotalES();
             displayTotalTP();
             displayTotalGS();
-        }
 
-        private void displayEnrolledToday_Paint(object sender, PaintEventArgs e)
-        {
-
+            displayEnrolledToday();
         }
 
         public void displayEnrolledToday()
@@ -35,7 +32,7 @@ namespace SchoolManagementSystem
             enrolledToday.DataSource = addSD.dashboardStudentData();
         }
 
-        private void displayTotalES()
+        public void displayTotalES()
         {
             if (connect.State != ConnectionState.Open)
             {
@@ -81,12 +78,12 @@ namespace SchoolManagementSystem
                     using (SqlCommand cmd = new SqlCommand(selectData, connect))
                     {
                         SqlDataReader reader = cmd.ExecuteReader();
-                        int tempTT = 0;
+                        int tempTP = 0;
                         if (reader.Read())
                         {
-                            tempTT = Convert.ToInt32(reader[0]);
+                            tempTP = Convert.ToInt32(reader[0]);
 
-                            total_TP.Text = tempTT.ToString();
+                            total_TP.Text = tempTP.ToString();
                         }
                     }
 
